@@ -16,7 +16,11 @@ interface users{
     author:string,
     url:string,
     urlToImage:string,
-    publishedAt:string
+    publishedAt:string,
+    source:{
+        id:string,
+        name:string
+    }
 }
 
 
@@ -49,12 +53,14 @@ const News = (props:NewsProps) => {
     
 
   return (
-    <div className='container' >
+    <div className='container ' >
+        
         <div className='row'>
+        <h1 style={{ marginLeft:"350px"}}>TOP Headlines - {props.category}</h1>
         {articles.map((element)=>{
           return(
             <div  className="col-md-4" key={element.url}>
-            <NewsItem tittle={element.title} description={element.description} imageurl={element.urlToImage} newsurl={element.url} date={element.publishedAt} author={element.author} />
+            <NewsItem tittle={element.title} description={element.description} imageurl={element.urlToImage} newsurl={element.url} date={element.publishedAt} author={element.author} source={element.source} />
             </div>
           )
         })}

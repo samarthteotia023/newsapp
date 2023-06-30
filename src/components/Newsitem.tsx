@@ -7,6 +7,10 @@ type NewsitemProps={
     newsurl:string,
     author:string ,
     date:string,
+    source:{
+        id:string,
+        name:string
+    }
     
 
 }
@@ -15,12 +19,12 @@ const NewsItem=(props:NewsitemProps)=> {
   
  
 
-    let { tittle, description,imageurl ,newsurl,author,date,} = props;
+    let { tittle, description,imageurl ,newsurl,author,date,source} = props;
     return (
-      <div className="container my-4">
+      <div className="container   my-4">
         <div className="card" >
         <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style={{left:'90%',zIndex:'1 '}}>
-   
+        {source.name}
     <span className="visually-hidden">unread messages</span>
   </span>
           <img
